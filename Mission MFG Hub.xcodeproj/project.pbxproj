@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE2E25D230F30005DA66 /* Mission_MFG_HubApp.swift */; };
+		8AE2CE3125D230F30005DA66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE3025D230F30005DA66 /* ContentView.swift */; };
+		8AE2CE3325D230F40005DA66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2CE3225D230F40005DA66 /* Assets.xcassets */; };
+		8AE2CE3625D230F40005DA66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2CE3525D230F40005DA66 /* Preview Assets.xcassets */; };
+		8AE2CE4225D230F50005DA66 /* Mission_MFG_HubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE4125D230F50005DA66 /* Mission_MFG_HubTests.swift */; };
+		8AE2CE4D25D230F50005DA66 /* Mission_MFG_HubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE4C25D230F50005DA66 /* Mission_MFG_HubUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8AE2CE3E25D230F50005DA66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AE2CE2325D230F30005DA66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AE2CE2A25D230F30005DA66;
+			remoteInfo = "Mission MFG Hub";
+		};
+		8AE2CE4925D230F50005DA66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AE2CE2325D230F30005DA66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AE2CE2A25D230F30005DA66;
+			remoteInfo = "Mission MFG Hub";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8AE2CE2B25D230F30005DA66 /* Mission MFG Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mission MFG Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE2CE2E25D230F30005DA66 /* Mission_MFG_HubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission_MFG_HubApp.swift; sourceTree = "<group>"; };
+		8AE2CE3025D230F30005DA66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8AE2CE3225D230F40005DA66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AE2CE3525D230F40005DA66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8AE2CE3725D230F40005DA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE2CE3825D230F40005DA66 /* Mission_MFG_Hub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mission_MFG_Hub.entitlements; sourceTree = "<group>"; };
+		8AE2CE3D25D230F50005DA66 /* Mission MFG HubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mission MFG HubTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE2CE4125D230F50005DA66 /* Mission_MFG_HubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission_MFG_HubTests.swift; sourceTree = "<group>"; };
+		8AE2CE4325D230F50005DA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE2CE4825D230F50005DA66 /* Mission MFG HubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mission MFG HubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE2CE4C25D230F50005DA66 /* Mission_MFG_HubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission_MFG_HubUITests.swift; sourceTree = "<group>"; };
+		8AE2CE4E25D230F50005DA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8AE2CE2825D230F30005DA66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE3A25D230F50005DA66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE4525D230F50005DA66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8AE2CE2225D230F30005DA66 = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE2D25D230F30005DA66 /* Mission MFG Hub */,
+				8AE2CE4025D230F50005DA66 /* Mission MFG HubTests */,
+				8AE2CE4B25D230F50005DA66 /* Mission MFG HubUITests */,
+				8AE2CE2C25D230F30005DA66 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8AE2CE2C25D230F30005DA66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE2B25D230F30005DA66 /* Mission MFG Hub.app */,
+				8AE2CE3D25D230F50005DA66 /* Mission MFG HubTests.xctest */,
+				8AE2CE4825D230F50005DA66 /* Mission MFG HubUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AE2CE2D25D230F30005DA66 /* Mission MFG Hub */ = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE2E25D230F30005DA66 /* Mission_MFG_HubApp.swift */,
+				8AE2CE3025D230F30005DA66 /* ContentView.swift */,
+				8AE2CE3225D230F40005DA66 /* Assets.xcassets */,
+				8AE2CE3725D230F40005DA66 /* Info.plist */,
+				8AE2CE3825D230F40005DA66 /* Mission_MFG_Hub.entitlements */,
+				8AE2CE3425D230F40005DA66 /* Preview Content */,
+			);
+			path = "Mission MFG Hub";
+			sourceTree = "<group>";
+		};
+		8AE2CE3425D230F40005DA66 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE3525D230F40005DA66 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8AE2CE4025D230F50005DA66 /* Mission MFG HubTests */ = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE4125D230F50005DA66 /* Mission_MFG_HubTests.swift */,
+				8AE2CE4325D230F50005DA66 /* Info.plist */,
+			);
+			path = "Mission MFG HubTests";
+			sourceTree = "<group>";
+		};
+		8AE2CE4B25D230F50005DA66 /* Mission MFG HubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8AE2CE4C25D230F50005DA66 /* Mission_MFG_HubUITests.swift */,
+				8AE2CE4E25D230F50005DA66 /* Info.plist */,
+			);
+			path = "Mission MFG HubUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8AE2CE2A25D230F30005DA66 /* Mission MFG Hub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE2CE5125D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG Hub" */;
+			buildPhases = (
+				8AE2CE2725D230F30005DA66 /* Sources */,
+				8AE2CE2825D230F30005DA66 /* Frameworks */,
+				8AE2CE2925D230F30005DA66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mission MFG Hub";
+			productName = "Mission MFG Hub";
+			productReference = 8AE2CE2B25D230F30005DA66 /* Mission MFG Hub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8AE2CE3C25D230F50005DA66 /* Mission MFG HubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE2CE5425D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG HubTests" */;
+			buildPhases = (
+				8AE2CE3925D230F50005DA66 /* Sources */,
+				8AE2CE3A25D230F50005DA66 /* Frameworks */,
+				8AE2CE3B25D230F50005DA66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8AE2CE3F25D230F50005DA66 /* PBXTargetDependency */,
+			);
+			name = "Mission MFG HubTests";
+			productName = "Mission MFG HubTests";
+			productReference = 8AE2CE3D25D230F50005DA66 /* Mission MFG HubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8AE2CE4725D230F50005DA66 /* Mission MFG HubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE2CE5725D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG HubUITests" */;
+			buildPhases = (
+				8AE2CE4425D230F50005DA66 /* Sources */,
+				8AE2CE4525D230F50005DA66 /* Frameworks */,
+				8AE2CE4625D230F50005DA66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8AE2CE4A25D230F50005DA66 /* PBXTargetDependency */,
+			);
+			name = "Mission MFG HubUITests";
+			productName = "Mission MFG HubUITests";
+			productReference = 8AE2CE4825D230F50005DA66 /* Mission MFG HubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AE2CE2325D230F30005DA66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					8AE2CE2A25D230F30005DA66 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					8AE2CE3C25D230F50005DA66 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 8AE2CE2A25D230F30005DA66;
+					};
+					8AE2CE4725D230F50005DA66 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 8AE2CE2A25D230F30005DA66;
+					};
+				};
+			};
+			buildConfigurationList = 8AE2CE2625D230F30005DA66 /* Build configuration list for PBXProject "Mission MFG Hub" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8AE2CE2225D230F30005DA66;
+			productRefGroup = 8AE2CE2C25D230F30005DA66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8AE2CE2A25D230F30005DA66 /* Mission MFG Hub */,
+				8AE2CE3C25D230F50005DA66 /* Mission MFG HubTests */,
+				8AE2CE4725D230F50005DA66 /* Mission MFG HubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AE2CE2925D230F30005DA66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE2CE3625D230F40005DA66 /* Preview Assets.xcassets in Resources */,
+				8AE2CE3325D230F40005DA66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE3B25D230F50005DA66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE4625D230F50005DA66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AE2CE2725D230F30005DA66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE2CE3125D230F30005DA66 /* ContentView.swift in Sources */,
+				8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE3925D230F50005DA66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE2CE4225D230F50005DA66 /* Mission_MFG_HubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE2CE4425D230F50005DA66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE2CE4D25D230F50005DA66 /* Mission_MFG_HubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8AE2CE3F25D230F50005DA66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AE2CE2A25D230F30005DA66 /* Mission MFG Hub */;
+			targetProxy = 8AE2CE3E25D230F50005DA66 /* PBXContainerItemProxy */;
+		};
+		8AE2CE4A25D230F50005DA66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AE2CE2A25D230F30005DA66 /* Mission MFG Hub */;
+			targetProxy = 8AE2CE4925D230F50005DA66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8AE2CE4F25D230F50005DA66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8AE2CE5025D230F50005DA66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8AE2CE5225D230F50005DA66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mission MFG Hub/Mission_MFG_Hub.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Mission MFG Hub/Preview Content\"";
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Mission MFG Hub/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-Hub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8AE2CE5325D230F50005DA66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mission MFG Hub/Mission_MFG_Hub.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Mission MFG Hub/Preview Content\"";
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Mission MFG Hub/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-Hub";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8AE2CE5525D230F50005DA66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				INFOPLIST_FILE = "Mission MFG HubTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-HubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mission MFG Hub.app/Contents/MacOS/Mission MFG Hub";
+			};
+			name = Debug;
+		};
+		8AE2CE5625D230F50005DA66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				INFOPLIST_FILE = "Mission MFG HubTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-HubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mission MFG Hub.app/Contents/MacOS/Mission MFG Hub";
+			};
+			name = Release;
+		};
+		8AE2CE5825D230F50005DA66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				INFOPLIST_FILE = "Mission MFG HubUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-HubUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Mission MFG Hub";
+			};
+			name = Debug;
+		};
+		8AE2CE5925D230F50005DA66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 63R2ZSH8Q6;
+				INFOPLIST_FILE = "Mission MFG HubUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JakeSax.Mission-MFG-HubUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Mission MFG Hub";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AE2CE2625D230F30005DA66 /* Build configuration list for PBXProject "Mission MFG Hub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE2CE4F25D230F50005DA66 /* Debug */,
+				8AE2CE5025D230F50005DA66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE2CE5125D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG Hub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE2CE5225D230F50005DA66 /* Debug */,
+				8AE2CE5325D230F50005DA66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE2CE5425D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG HubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE2CE5525D230F50005DA66 /* Debug */,
+				8AE2CE5625D230F50005DA66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE2CE5725D230F50005DA66 /* Build configuration list for PBXNativeTarget "Mission MFG HubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE2CE5825D230F50005DA66 /* Debug */,
+				8AE2CE5925D230F50005DA66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AE2CE2325D230F30005DA66 /* Project object */;
+}
