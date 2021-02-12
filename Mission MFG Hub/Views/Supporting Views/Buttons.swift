@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// A simple button of text w a color behind it
 struct TextButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -17,7 +18,7 @@ struct TextButton: ButtonStyle {
     }
 }
 
-
+// a style of button with an icon as the button, usually an SF Symbol
 struct IconButtonStyle: ButtonStyle {
     var defaultColor: Color = gray7
     var pressedColor: Color = gray4
@@ -26,6 +27,7 @@ struct IconButtonStyle: ButtonStyle {
     var innerPadding: CGFloat = 4 // used to push bkgd color inside bounds of icon
     @State var scale: CGFloat = 1.15
     var scaleDuration: Double = 0.2
+//    @State private var isHovering: Bool = false
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(configuration.isPressed ? pressedColor : defaultColor)
@@ -35,75 +37,69 @@ struct IconButtonStyle: ButtonStyle {
                     .shadow(color: shadowColor, radius: 8, x: 0, y: 4)
             )
             .scaleEffect(configuration.isPressed ? scale : 1).animation(.easeInOut(duration: scaleDuration))
+//            .brightness(isHovering ? -0.2 : 0)
+//            .onHover(perform: { hovering in
+//                withAnimation(.easeInOut) { self.isHovering = hovering }
+//                print("hover")
+//            })
     }
 }
 
+// Button with a SF Symbol as the image, with an active state
 struct IconButton: View {
     @Binding var isActive: Bool // was State
     var activeAction: () -> Void
     var image: String
-    
+    var size: CGFloat = 32
     var body: some View {
         Button(action: {
             withAnimation {
                 if isActive { activeAction() }
                 else { print("Button Inactive") } }
         }, label: {
-            Image(systemName: image).font(Font.system(size: 32, weight: .regular, design: .default))
+            Image(systemName: image).font(Font.system(size: size, weight: .regular, design: .default))
         }).buttonStyle(IconButtonStyle())
         .opacity(isActive ? 1 : 0.4)
     }
 }
 
+// Pair of arrow buttons for basic navigation
 struct ArrowButtonPair: View {
     @Binding var index: Int
     @State var max: Int
     @State var leftActive: Bool = false
     @State var rightActive: Bool = true
+    let leftIconString = "chevron.left.square.fill"
+    let rightIconString = "chevron.right.square.fill"
+    
     var body: some View {
         Group {
-            IconButton(isActive: $leftActive, activeAction: { index -= 1 }, image: "chevron.left.square.fill")
-            IconButton(isActive: $rightActive, activeAction: { index += 1 } , image: "chevron.right.square.fill")
-        }.onAppear(perform: {
-            checkState()
-        })
-        .onChange(of: index, perform: { value in
-            checkState()
-        })
+            IconButton(isActive: $leftActive, activeAction: { index -= 1 }, image: leftIconString)
+            IconButton(isActive: $rightActive, activeAction: { index += 1 } , image: rightIconString)
+        }.onAppear(perform: { checkState() })
+        .onChange(of: index, perform: { value in checkState() })
+        
     }
-
-    func checkState() {
+    
+    func checkState() { // checks whether the buttons should be active
         leftActive = index > 0
         rightActive = index < (max - 1)
     }
 }
 
-//struct LeftArrowButton: View {
-//    @Binding var isActiveWhen: Bool
-//    var activeAction: () -> Void
-//    var body: some View {
-//        IconButton(isActive: $isActiveWhen, activeAction: activeAction, image: "chevron.left.square.fill")
-//    }
-//}
-//
-//struct RightArrowButton: View {
-//    @Binding var isActiveWhen: Bool
-//    var activeAction: () -> Void
-//    var body: some View {
-//        IconButton(isActive: $isActiveWhen, activeAction: activeAction, image: "chevron.right.square.fill")
-//    }
-//}
-
 
 struct EditButton: View {
     var image = "pencil.circle"
+    var action: () -> Void
     var body: some View {
         Button(action: {
+            action()
             print("edit text")
         }, label: {
             Image(systemName: image)
-                .font(Font.system(size: 32, weight: .regular, design: .default))
+                .font(Font.system(size: 28, weight: .regular, design: .default))
         }).buttonStyle(IconButtonStyle(defaultColor: gray6, pressedColor: gray4, bkgdColor: .clear, shadowColor: .clear))
+        .darkenOnHover()
     }
 }
 
@@ -120,9 +116,10 @@ struct RefreshButton: View {
             }
         }, label: {
             Image(systemName: image)
-                .font(Font.system(size: 32, weight: .regular, design: .default))
+                .font(Font.system(size: 28, weight: .regular, design: .default))
         }).buttonStyle(IconButtonStyle(defaultColor: gray6, pressedColor: gray4, bkgdColor: .clear, shadowColor: .clear, scale: 1.3, scaleDuration: 0.45))
         .rotationEffect(.degrees(rotation))
+        .darkenOnHover()
     }
 }
 

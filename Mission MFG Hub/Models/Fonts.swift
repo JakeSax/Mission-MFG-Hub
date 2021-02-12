@@ -49,6 +49,14 @@ struct H6: ViewModifier {
     }
 }
 
+struct MenuText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Telegraf Bold", size: 24))
+            .textCase(.uppercase)
+    }
+}
+
 struct BodyText: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -124,6 +132,9 @@ extension View {
     }
     func H6Style() -> some View {
         self.modifier(H5())
+    }
+    func MenuTextStyle() -> some View {
+        self.modifier(MenuText())
     }
     func BodyStyle() -> some View {
         self.modifier(BodyText())

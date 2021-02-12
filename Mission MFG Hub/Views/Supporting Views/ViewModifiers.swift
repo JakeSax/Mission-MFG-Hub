@@ -18,6 +18,29 @@ struct shadow1: ViewModifier {
     }
 }
 
+struct darkenOnHoverMod: ViewModifier {
+    @State var isHovering: Bool = false
+    func body(content: Content) -> some View {
+        content
+            .brightness(isHovering ? -0.2 : 0)
+            .onHover(perform: { hovering in
+                self.isHovering = hovering
+            })
+    }
+}
+
+struct lightenOnHoverMod: ViewModifier {
+    @State var isHovering: Bool = false
+    func body(content: Content) -> some View {
+        content
+            .brightness(isHovering ? 0.2 : 0)
+            .onHover(perform: { hovering in
+                self.isHovering = hovering
+            })
+    }
+}
+
+
 struct leftAlignMod: ViewModifier {
     func body(content: Content) -> some View {
         HStack {
@@ -93,6 +116,12 @@ extension View {
     }
     func VCenterAlign() -> some View {
         self.modifier(VCenterAlignMod())
+    }
+    func darkenOnHover() -> some View {
+        self.modifier(darkenOnHoverMod())
+    }
+    func lightenOnHover() -> some View {
+        self.modifier(lightenOnHoverMod())
     }
     
 }

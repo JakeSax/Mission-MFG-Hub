@@ -11,7 +11,14 @@ import SwiftUI
 struct Mission_MFG_HubApp: App {
     var body: some Scene {
         WindowGroup {
-            ItemView(item: testItem)
+            ZStack {
+                white
+                VStack {
+                    MenuView()
+                ItemView(item: testItem)
+                }
+            }
+            
         }
     }
 }

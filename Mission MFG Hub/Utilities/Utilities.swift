@@ -1,5 +1,5 @@
 //
-//  ViewUtilities.swift
+//  Utilities.swift
 //  Mission MFG Hub
 //
 //  Created by Jacob Sax on 2/8/21.
