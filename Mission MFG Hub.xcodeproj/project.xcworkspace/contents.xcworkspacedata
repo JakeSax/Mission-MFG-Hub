@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:Views"
+      name = "Views">
+   </Group>
+   <Group
+      location = "group:/Users/JacobSax/Documents/Programming/Mission MFG Hub App/Mission MFG Hub/Mission MFG Hub/Utilities"
+      name = "Utilities">
+      <FileRef
+         location = "group:ViewUtilities.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Animations.swift">
+      </FileRef>
+   </Group>
    <FileRef
       location = "self:">
    </FileRef>

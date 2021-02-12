@@ -11,7 +11,7 @@ import SwiftUI
 struct Mission_MFG_HubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ItemView(item: testItem)
         }
     }
 }

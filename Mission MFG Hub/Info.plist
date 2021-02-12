@@ -18,7 +18,18 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ObjectSans-Thin.otf</string>
+		<string>ObjectSans-Regular.otf</string>
+		<string>ObjectSans-Bold.otf</string>
+		<string>ObjectSans-Heavy.otf</string>
+		<string>Telegraf-Bold.otf</string>
+		<string>Telegraf-UltraBold.otf</string>
+	</array>
 </dict>
 </plist>
