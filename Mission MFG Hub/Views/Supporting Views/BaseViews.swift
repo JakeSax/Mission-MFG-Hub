@@ -52,7 +52,6 @@ struct Line: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 1)
             .frame(minWidth: width, idealWidth: width, maxWidth: maxWidth, minHeight: 1, idealHeight: height, maxHeight: height, alignment: alignment)
-//            .frame(width: width, height: height, alignment: alignment)
             .foregroundColor(color)
     }
 }

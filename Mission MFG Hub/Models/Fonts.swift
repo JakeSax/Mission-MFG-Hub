@@ -106,6 +106,13 @@ struct LabelText: ViewModifier {
     }
 }
 
+struct Label2Text: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Telegraf Bold", size: 18))
+    }
+}
+
 //struct SmallLabel: ViewModifier {
 //    func body(content: Content) -> some View {
 //        content
@@ -131,7 +138,7 @@ extension View {
         self.modifier(H5())
     }
     func H6Style() -> some View {
-        self.modifier(H5())
+        self.modifier(H6())
     }
     func MenuTextStyle() -> some View {
         self.modifier(MenuText())
@@ -151,6 +158,9 @@ extension View {
     //    }
     func LabelStyle() -> some View {
         self.modifier(LabelText())
+    }
+    func Label2Style() -> some View {
+        self.modifier(Label2Text())
     }
     //    func SmallLabelStyle() -> some View {
     //        self.modifier(SmallLabel())

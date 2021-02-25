@@ -15,9 +15,10 @@ struct Mission_MFG_HubApp: App {
                 white
                 VStack {
                     MenuView()
-                ItemView(item: testItem)
+                    Spacer()
+//                    ItemView(item: testItem)
                 }
-            }
+            }.frame(width: 1920, alignment: .center)
             
         }
     }

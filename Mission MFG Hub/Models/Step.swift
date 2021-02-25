@@ -24,7 +24,6 @@ class Step {
     var print: (Image, String)
     var taskTimeTuple: (String, String)
     lazy var taskTime: (TimeDivision, Float) = convertTimeStrings(timeTuple: taskTimeTuple)
-//    @State var taskTimeString: String = "Enter Time"
     @State var timeFormat: TimeFormat = .minutes
     var machine: String
     var program: String

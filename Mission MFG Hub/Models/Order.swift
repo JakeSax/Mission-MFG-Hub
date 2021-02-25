@@ -8,9 +8,10 @@
 import SwiftUI
 
 class Order {
-    init(customerName: String, poNum: String, termsString: String, terms: Terms = .invalid, dateString: String, dueDateString: String = "Enter Date", orderTotal: Float, orderNotes: String, items: [Item]) {
+    init(customerName: String, poNum: String, orderNum: String, termsString: String, terms: Terms = .invalid, dateString: String, dueDateString: String = "Enter Date", orderTotal: Float, orderNotes: String, items: [Item]) {
         self.customerName = customerName
         self.poNum = poNum
+        self.orderNum = orderNum
         self.termsString = termsString
         self.terms = determineTerms(termsString)
         self.dateString = dateString
@@ -23,6 +24,7 @@ class Order {
     
     var customerName: String
     var poNum: String
+    var orderNum: String
     var termsString: String
     var terms: Terms
     var dateString: String
@@ -32,6 +34,18 @@ class Order {
     var orderTotal: Float
     var orderNotes: String
     var items: [Item]
+    
+    func getDateString() -> String {
+        guard let date = date
+        else {
+            return "Enter Date"
+        }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        let outDateString = formatter.string(from: date)
+        return outDateString
+    }
+
 }
 
 fileprivate func determineTerms(_ termsString: String) -> Terms {
@@ -44,10 +58,12 @@ fileprivate func determineTerms(_ termsString: String) -> Terms {
 fileprivate func determineDate(_ dateString: String) -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.dateFormat = "MM/dd/yyyy"  // "yyyy-MM-dd"
     let date = dateFormatter.date(from:dateString)
     return date
 }
+
+
 
 //fileprivate func determineDueDate(_ date: Date?, terms: Terms) -> Date? {
 //    print("DetermineDueDate from file Order is incomplete")
@@ -60,8 +76,9 @@ fileprivate func determineDate(_ dateString: String) -> Date? {
 //}
 
 
-var testOrder = Order(customerName: "Titan Wake", poNum: "110834", termsString: "Net 30", dateString: "2/10/21", orderTotal: 600, orderNotes: "", items: [testItem])
-
+var testOrder = Order(customerName: "Titan Wake", poNum: "110834", orderNum: "TTN-110834", termsString: "Net 30", dateString: "2/10/21", orderTotal: 600, orderNotes: "", items: [testItem])
+var testOrder2 = Order(customerName: "Eteros Technology", poNum: "110839", orderNum: "ETS-110839", termsString: "Net 30", dateString: "2/12/21", orderTotal: 40, orderNotes: "", items: [testItem, testItem2, testItem3])
+var testOrder3 = Order(customerName: "Marquez Design", poNum: "110840", orderNum: "MQZ-110840", termsString: "Net 30", dateString: "2/11/21", orderTotal: 60, orderNotes: "", items: [testItem, testItem2])
 
 enum Terms: String {
     case net30 = "Net 30"

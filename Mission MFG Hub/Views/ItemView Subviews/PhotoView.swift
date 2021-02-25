@@ -12,6 +12,7 @@ struct PhotoView: View {
     @Binding var currentStep: Int
     @State var photoChoice: PhotoChoice = .steps
     @State var photoNum: Int = 0
+    @State var isHovering: Bool = false
     var body: some View {
         VStack{
             ZStack {
@@ -27,8 +28,20 @@ struct PhotoView: View {
                     (item.steps[currentStep].images[photoNum].0)
                         .resizable()
                         .scaledToFill()
-                    
+                        .onHover(perform: { hovering in
+                            withAnimation { isHovering = hovering }
+                        })
                     VStack {
+                        HStack {
+                            if isHovering {
+                                Text(item.steps[currentStep].images[photoNum].1)
+                                    .BodyStyle()
+                                    .foregroundColor(white)
+                                    .background(black.opacity(0.8).blur(radius: 20).padding(EdgeInsets(top: -4, leading: -20, bottom: -4, trailing: -20)))
+                                    .padding(EdgeInsets(top: 36, leading: 48, bottom: 0, trailing: 0))
+                            }
+                            Spacer()
+                        }
                         Spacer()
                         HStack {
                             Spacer()

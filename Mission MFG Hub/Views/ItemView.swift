@@ -32,7 +32,6 @@ struct ItemView: View {
                 PhotoView(item: $item, currentStep: $currentStep)
             }
         }
-//        .frame(width: 1920, height: 1080, alignment: .center)
     }
 }
 

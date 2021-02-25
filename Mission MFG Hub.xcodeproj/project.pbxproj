@@ -12,6 +12,10 @@
 		8A546B4125D6178200B0980A /* StepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546B4025D6178200B0980A /* StepTextView.swift */; };
 		8A546B4C25D63A2200B0980A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546B4B25D63A2200B0980A /* MenuView.swift */; };
 		8A546B5A25D63FF400B0980A /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A546B5925D63FF400B0980A /* PhotoView.swift */; };
+		8A7AB92625D741600027ECD7 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AB92525D741600027ECD7 /* OrderListView.swift */; };
+		8A7AB92B25D7416E0027ECD7 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AB92A25D7416E0027ECD7 /* MemberView.swift */; };
+		8A7AB93025D742280027ECD7 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AB92F25D742280027ECD7 /* ItemListView.swift */; };
+		8A7AB94125D746C20027ECD7 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7AB94025D746C20027ECD7 /* OrderView.swift */; };
 		8AAEFEB225D23D5E001F42B5 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEAD25D23D3A001F42B5 /* Fonts.swift */; };
 		8AAEFEB625D23D61001F42B5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEAE25D23D3A001F42B5 /* Colors.swift */; };
 		8AAEFEBD25D23DD9001F42B5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEBA25D23DD4001F42B5 /* Utilities.swift */; };
@@ -54,6 +58,10 @@
 		8A546B4025D6178200B0980A /* StepTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTextView.swift; sourceTree = "<group>"; };
 		8A546B4B25D63A2200B0980A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		8A546B5925D63FF400B0980A /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		8A7AB92525D741600027ECD7 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		8A7AB92A25D7416E0027ECD7 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		8A7AB92F25D742280027ECD7 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
+		8A7AB94025D746C20027ECD7 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		8AAEFEAD25D23D3A001F42B5 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		8AAEFEAE25D23D3A001F42B5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8AAEFEBA25D23DD4001F42B5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -152,8 +160,12 @@
 			isa = PBXGroup;
 			children = (
 				8A546B4B25D63A2200B0980A /* MenuView.swift */,
+				8A7AB92525D741600027ECD7 /* OrderListView.swift */,
+				8A7AB94025D746C20027ECD7 /* OrderView.swift */,
+				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
 				8AE2CE3025D230F30005DA66 /* ItemView.swift */,
 				8A546B2925D6131800B0980A /* ItemView Subviews */,
+				8A7AB92A25D7416E0027ECD7 /* MemberView.swift */,
 				8AAEFECC25D23DEF001F42B5 /* Supporting Views */,
 			);
 			path = Views;
@@ -366,8 +378,12 @@
 				8AAEFEB225D23D5E001F42B5 /* Fonts.swift in Sources */,
 				8A546B4125D6178200B0980A /* StepTextView.swift in Sources */,
 				8AF85D1125D47F6600A6FD4F /* Step.swift in Sources */,
+				8A7AB93025D742280027ECD7 /* ItemListView.swift in Sources */,
+				8A7AB92625D741600027ECD7 /* OrderListView.swift in Sources */,
 				8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */,
+				8A7AB94125D746C20027ECD7 /* OrderView.swift in Sources */,
 				8AAEFECE25D23E03001F42B5 /* BaseViews.swift in Sources */,
+				8A7AB92B25D7416E0027ECD7 /* MemberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
