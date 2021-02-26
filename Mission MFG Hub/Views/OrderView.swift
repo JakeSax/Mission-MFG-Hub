@@ -9,12 +9,13 @@ import SwiftUI
 
 struct OrderView: View {
     var order: Order = testOrder
-    
+    @State var isShowingItemView: Bool = false
+    var presentItemView: (_ item: Item) -> Void
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(white)
-                .strokeAndShadow(strokeColor: gray5, shadowColor: gray3, shadowY: 6)
+                .strokeAndShadow(cornerRadius: 16, strokeColor: gray5, strokeWidth: 1.2, shadowColor: shadowGray, shadowY: 8)
             
             HStack {
                 VStack(alignment: .leading, spacing: 12) {
@@ -39,16 +40,21 @@ struct OrderView: View {
                 
                 Spacer()
                 ZStack {
-                    RoundedRectangle(cornerRadius: 12).foregroundColor(gray1)
-                    HStack(spacing: 48) {
-                        ForEach(0 ..< order.items.count, id: (\.self)) { num in
-                            ItemPreview(item: order.items[num])
-                        }
-                        Spacer()
-                    }.padding(EdgeInsets(top: 24, leading: 36, bottom: 24, trailing: 36))
+                    RoundedRect(color: gray1, strokeColor: gray5, strokeWidth: 1.2, topLeft: 20, topRight: 16, bottomLeft: 0, bottomRight: 16)
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 48) {
+                            ForEach(0 ..< order.items.count, id: (\.self)) { num in
+                                ItemPreview(item: order.items[num])
+                                    .onTapGesture(perform: {
+                                    presentItemView(order.items[num])
+                                })
+                            }
+                            Spacer()
+                        }.padding(EdgeInsets(top: 24, leading: 36, bottom: 24, trailing: 36))
+                    }
                 }
             }
-            
+            RoundedRectangle(cornerRadius: 16).stroke(gray5, lineWidth: 1.2) // to fix stroke bug
         }.frame(width: 1832, height: 338)
     }
 }
@@ -57,6 +63,12 @@ struct OrderView: View {
 struct ItemPreview: View {
     var item: Item
     var body: some View {
+//        Button(action: {
+////            self.presentationMode.wrappedValue.dismiss()
+////            ItemView(item: item)
+//        }, label: {
+        
+        Group {
         RoundedRectangle(cornerRadius: 12)
             .foregroundColor(black)
             .frame(width: 306, height: 290, alignment: .center)
@@ -79,18 +91,20 @@ struct ItemPreview: View {
                                 .foregroundColor(gray3)
                                 .Label2Style()
                         }
-                        Text(item.steps[0].title)
+                        Text(item.steps[item.currentStep].title)
                             .H6Style()
                             .foregroundColor(gray3)
-                    }.padding(EdgeInsets(top: 24, leading: 12, bottom: 16, trailing: 0))
+                    }.padding(EdgeInsets(top: 24, leading: 16, bottom: 16, trailing: 0))
                     Spacer()
                 }
             )
-    }
+        }
+//    })
+        }
 }
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView()
+        OrderView(presentItemView: {_ in "item goes boom here"})
     }
 }

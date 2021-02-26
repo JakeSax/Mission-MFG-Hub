@@ -10,6 +10,7 @@ import SwiftUI
 struct StepTextView: View {
     @Binding var item: Item
     @Binding var currentStep: Int
+//    @State var isEditing: Bool = false
     var refreshAction: () -> Void
     var editAction: () -> Void
     var body: some View {

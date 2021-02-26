@@ -120,6 +120,7 @@
 				8A546B2A25D6133C00B0980A /* StepHeader.swift */,
 				8A546B4025D6178200B0980A /* StepTextView.swift */,
 				8A546B5925D63FF400B0980A /* PhotoView.swift */,
+				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
 			);
 			path = "ItemView Subviews";
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 				8A546B4B25D63A2200B0980A /* MenuView.swift */,
 				8A7AB92525D741600027ECD7 /* OrderListView.swift */,
 				8A7AB94025D746C20027ECD7 /* OrderView.swift */,
-				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
 				8AE2CE3025D230F30005DA66 /* ItemView.swift */,
 				8A546B2925D6131800B0980A /* ItemView Subviews */,
 				8A7AB92A25D7416E0027ECD7 /* MemberView.swift */,

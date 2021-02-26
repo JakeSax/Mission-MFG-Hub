@@ -43,6 +43,7 @@ struct StepHeader: View {
             Line(width: 660, color: gray3).padding()
         }.onChange(of: currentStep, perform: { value in // update time according to step
             taskTime = item.steps[currentStep].calculateTime(qty: item.qty)
+            item.currentStep = currentStep
         })
         .onAppear(perform: {
             taskTime = item.steps[currentStep].calculateTime(qty: item.qty)

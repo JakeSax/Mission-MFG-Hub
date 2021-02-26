@@ -20,10 +20,10 @@ struct shadow1: ViewModifier {
 
 // For rounded rectangles 
 struct strokeAndShadowMod: ViewModifier {
-    var strokeColor: Color = .black
-    var shadowColor: Color = gray4
     var cornerRadius: CGFloat = 12
+    var strokeColor: Color = .black
     var strokeWidth: CGFloat = 1
+    var shadowColor: Color = gray4
     var shadowY: CGFloat = 4
     var shadowRadius: CGFloat = 8
     
@@ -141,8 +141,8 @@ extension View {
     func lightenOnHover() -> some View {
         self.modifier(lightenOnHoverMod())
     }
-    func strokeAndShadow(strokeColor: Color = .black, shadowColor: Color = gray4, cornerRadius: CGFloat = 12, strokeWidth: CGFloat = 1, shadowY: CGFloat = 4, shadowRadius: CGFloat = 8) -> some View {
-        self.modifier(strokeAndShadowMod(strokeColor: strokeColor, shadowColor: shadowColor, cornerRadius: cornerRadius, strokeWidth: strokeWidth, shadowY: shadowY, shadowRadius: shadowRadius))
+    func strokeAndShadow(cornerRadius: CGFloat = 12, strokeColor: Color = .black, strokeWidth: CGFloat = 1, shadowColor: Color = gray4,  shadowY: CGFloat = 4, shadowRadius: CGFloat = 8) -> some View {
+        self.modifier(strokeAndShadowMod(cornerRadius: cornerRadius, strokeColor: strokeColor, strokeWidth: strokeWidth, shadowColor: shadowColor,  shadowY: shadowY, shadowRadius: shadowRadius))
     }
     
 }
