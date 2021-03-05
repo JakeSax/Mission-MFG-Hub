@@ -51,7 +51,7 @@ struct lightenOnHoverMod: ViewModifier {
     @State var isHovering: Bool = false
     func body(content: Content) -> some View {
         content
-            .brightness(isHovering ? 0.2 : 0)
+            .brightness(isHovering ? 0.15 : 0)
             .onHover(perform: { hovering in
                 self.isHovering = hovering
             })

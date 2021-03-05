@@ -18,7 +18,8 @@ struct Mission_MFG_HubApp: App {
                     Spacer()
 //                    ItemView(item: testItem)
                 }
-            }.frame(width: 1920, alignment: .center)
+            }.frame(width: 1800, alignment: .center)
+//            .frame(width: 1920, alignment: .center)
             
         }
     }

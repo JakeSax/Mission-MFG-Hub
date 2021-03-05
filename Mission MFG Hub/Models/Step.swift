@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Step {
+class Step: ObservableObject {
     init(title: String, text: [ String:String ], images: [ (Image, String) ], print: (Image, String), taskTimeTuple: (String, String), machine: String, program: String) {
         self.title = title
         self.text = text
@@ -18,15 +18,15 @@ class Step {
         self.program = program
     }
     
-    var title: String
-    var text: [ String:String ]
-    var images: [ (Image, String) ]
-    var print: (Image, String)
-    var taskTimeTuple: (String, String)
+    @State var title: String // title of step
+    @Published var text: [ String:String ] // [ Header : Body ]
+    @State var images: [ (Image, String) ] // [ (Image: Desc) ]
+    @State var print: (Image, String) // (Image: Desc)
+    @State var taskTimeTuple: (String, String) // ("By Step", "30") or ("By Per", "4")
     lazy var taskTime: (TimeDivision, Float) = convertTimeStrings(timeTuple: taskTimeTuple)
     @State var timeFormat: TimeFormat = .minutes
-    var machine: String
-    var program: String
+    @State var machine: String
+    @State var program: String
     
     // converts formatted tuple into string
     func calculateTime(qty: Int) -> String {
@@ -97,4 +97,11 @@ enum TimeDivision: String {
 enum TimeFormat: String {
     case minutes = "MIN"
     case hours = "HR"
+}
+
+struct StepText {
+//    let id = UUID()
+    @State var header: String = "Add Header"
+    @State var body: String = "Add text here…"
+    
 }

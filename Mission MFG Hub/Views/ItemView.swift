@@ -24,7 +24,7 @@ struct ItemView: View {
                     
                     StepHeader(item: $item, currentStep: $currentStep)
                     
-                    StepTextView(item: $item, currentStep: $currentStep, refreshAction: updateView, editAction: edit)
+                    StepTextListView(item: $item, currentStep: $currentStep, refreshAction: updateView, editAction: edit)
                     
                 }.padding()
                 

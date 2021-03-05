@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Order {
+class Order: ObservableObject {
     init(customerName: String, poNum: String, orderNum: String, termsString: String, terms: Terms = .invalid, dateString: String, dueDateString: String = "Enter Date", orderTotal: Float, orderNotes: String, items: [Item]) {
         self.customerName = customerName
         self.poNum = poNum
@@ -23,8 +23,8 @@ class Order {
     }
     
     var customerName: String
-    var poNum: String
-    var orderNum: String
+    @State var poNum: String
+    @State var orderNum: String
     var termsString: String
     var terms: Terms
     var dateString: String
@@ -33,7 +33,7 @@ class Order {
     var dueDate: Date?
     var orderTotal: Float
     var orderNotes: String
-    var items: [Item]
+    @State var items: [Item]
     
     func getDateString() -> String {
         guard let date = date

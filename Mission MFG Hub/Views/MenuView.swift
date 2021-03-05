@@ -23,18 +23,18 @@ struct MenuView: View {
                             .offset(y: 2)
                             .lightenOnHover()
                     }
-                    Line(width: 916, color: gray5).offset(y: 2)
+                    Line(width: 748, color: gray5).offset(y: 2)
                     Image("Logo")
                 }.padding(EdgeInsets(top: 20, leading: 64, bottom: 12, trailing: 64))
                 Line(width: 1000, color: black).padding(0)
                 switch selectedTab {
-                case 0: OrderListView()
+                case 0: ItemView(item: testItem) // should be OrderListView()
                 case 1: ItemListView()
-                case 2: ItemView(item: testItem)
+                case 2: OrderListView() // should be ItemView
                 default: OrderListView()
                 }
                 Spacer()
-        }
+            }
         }
     }
 }

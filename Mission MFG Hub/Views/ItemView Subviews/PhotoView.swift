@@ -50,7 +50,8 @@ struct PhotoView: View {
                     }.padding()
                 }
             }.padding()
-            .frame(width: 1200, height: 800, alignment: .center)
+            .frame(width: 900, height: 600, alignment: .center)
+//            .frame(width: 1200, height: 800, alignment: .center)
             Spacer()
         }.padding()
     }

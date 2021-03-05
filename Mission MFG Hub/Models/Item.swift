@@ -19,14 +19,14 @@ class Item: ObservableObject {
         self.steps = steps
     }
     
-    var partNum : String
-    var partTitle : String
-    var partDesc : String
-    var qty : Int
-    var pricePer : Float
-    var priceTotal : Float
-    var weightPer : Float
-    var steps : [Step]
+    @State var partNum : String
+    @State var partTitle : String
+    @State var partDesc : String
+    @State var qty : Int
+    @State var pricePer : Float
+    @State var priceTotal : Float
+    @State var weightPer : Float
+    @State var steps : [Step]
     @Published var currentStep : Int = 0
 }
 
