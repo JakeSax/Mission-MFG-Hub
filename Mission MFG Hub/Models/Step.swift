@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class Step: ObservableObject {
-    init(title: String, text: [[String]], images: [ (Image, String) ], print: (Image, String), taskTimeTuple: (String, String), machine: String, program: String) {
+class Step: ObservableObject, Identifiable {
+    init(title: String, text: [(header: String, body: String)], images: [ (Image, String) ], print: (Image, String), taskTimeTuple: (String, String), machine: String, program: String) {
         self.title = title
         var array: [StepText] = []
-        for stepText in text  {
-            array.append(StepText(header: stepText[0], body: stepText[1]))
+        for stepText in text {
+            array.append(StepText(header: stepText.header, body: stepText.body))
         }
         self.text = array
         self.images = images
@@ -23,6 +23,7 @@ class Step: ObservableObject {
     }
     
     @State var title: String // title of step
+//    @Published var text: [(header: String, body: String)]
     @Published var text: [StepText]
     @State var images: [ (image: Image, description: String) ] // [ (Image: Desc) ]
     @State var print: (image: Image, description: String) // (Image: Desc)
@@ -31,6 +32,7 @@ class Step: ObservableObject {
     @State var timeFormat: TimeFormat = .minutes
     @State var machine: String
     @State var program: String
+    let id = UUID()
     
     // converts formatted tuple into string
     func calculateTime(qty: Int) -> String {
@@ -87,9 +89,9 @@ class Step: ObservableObject {
 var testTaskTimeTuple: (String, String) = ("By Step", "30")
 var testTaskTimeTuple2: (String, String) = ("By Per", "4")
 
-var testStep = Step(title: "Machine Setup", text: [["Setup Instructions", "These are a set of instructions about all the ways in which you are supposed to set up this specific part. Deburr the edges of the material and place it down pushing it up to the top left of the stop. Then tighten the vise firmly."], ["Warnings", "These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"]], images: [(Image("Triple Forks"), "Finished Triple Forks"), (Image("Triple Fork Ano Board Rack 1"), "Triple Fork Ano Board Rack")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple,  machine: "VF3", program: "N/A")
+var testStep = Step(title: "Machine Setup", text: [("Setup Instructions", "These are a set of instructions about all the ways in which you are supposed to set up this specific part. Deburr the edges of the material and place it down pushing it up to the top left of the stop. Then tighten the vise firmly."), ("Warnings", "These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful")], images: [(Image("Triple Forks"), "Finished Triple Forks"), (Image("Triple Fork Ano Board Rack 1"), "Triple Fork Ano Board Rack")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple,  machine: "VF3", program: "N/A")
 
-var testStep2 = Step(title: "Operate Mill", text: [["Part Holding", "First clear the vise of any loose chips or coolant. Ensure that the back side of the jaws are clean as well. Once you have deburred the material, place it deburred side down and push it up against the back of the jaw and all the way to left against the stop. Push the material down and to the left corner away from you as you tighten the jaws. Tighten firmly."], ["Tips & Warnings", "But hey watch out for some things that I'm about to explain right now. I'm gonna explain a number of things so watch out or else you might get hurt or hurt the machine or ruin the part. Okay, I'm gonna explain it now.These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"]], images: [(Image("Triple Forks"), "Finished Triple Forks")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple2, machine: "VF3", program: "1043")
+var testStep2 = Step(title: "Operate Mill", text: [("Part Holding", "First clear the vise of any loose chips or coolant. Ensure that the back side of the jaws are clean as well. Once you have deburred the material, place it deburred side down and push it up against the back of the jaw and all the way to left against the stop. Push the material down and to the left corner away from you as you tighten the jaws. Tighten firmly."), ("Tips & Warnings", "But hey watch out for some things that I'm about to explain right now. I'm gonna explain a number of things so watch out or else you might get hurt or hurt the machine or ruin the part. Okay, I'm gonna explain it now.These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful")], images: [(Image("Triple Forks"), "Finished Triple Forks")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple2, machine: "VF3", program: "1043")
 
 
 enum TimeDivision: String {
@@ -103,15 +105,17 @@ enum TimeFormat: String {
     case hours = "HR"
 }
 
-struct StepText: Hashable, Identifiable {
+class StepText: ObservableObject, Identifiable{
     static func == (lhs: StepText, rhs: StepText) -> Bool {
         lhs.header == rhs.header && lhs.body == rhs.body
     }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(header)
-        hasher.combine(body)
+    
+    init(header: String = "Add Header", body: String = "Add text here") {
+        self.header = header
+        self.body = body
     }
+    
+    @Published var header: String
+    @Published var body: String 
     let id = UUID()
-    @State var header: String = "Add Header here"
-    @State var body: String = "Add text here…"
 }

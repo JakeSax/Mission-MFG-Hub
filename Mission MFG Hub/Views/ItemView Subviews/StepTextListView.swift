@@ -13,6 +13,7 @@ struct StepTextListView: View {
     @Binding var currentStep: Int
     @State var isEditing: Bool = false
     var refreshAction: () -> Void
+    @State var text : [StepText]
     
     var body: some View {
         Group {
@@ -26,14 +27,11 @@ struct StepTextListView: View {
                     .offset(x: -20, y: 28)
                     .padding(-20)
                     
-                    ForEach(item.steps[currentStep].text.indices, id: \.self) { idx in
-                        HeaderTextField(headerText: item.steps[currentStep].text[idx].header, isEditing: $isEditing)
-                        BodyTextField(bodyText: item.steps[currentStep].text[idx].body, isEditing: $isEditing)
-                    }
-                    .onChange(of: currentStep, perform: { value in
-                        // commit text to current step and get new text for new step
-                        isEditing = false
-                    })
+                    ForEach(text.indices, id: \.self) { index in
+                            HeaderTextField(headerText: text[index].header, isEditing: $isEditing)
+                            BodyTextField(bodyText: text[index].body, isEditing: $isEditing)
+                    }.id(UUID())
+                    .transition(.textTransitionVert)
                 }
             }.padding()
             .padding(.top, -20)
@@ -45,16 +43,32 @@ struct StepTextListView: View {
                 .strokeAndShadow(strokeColor: isEditing ? gray6 : .clear, shadowColor: isEditing ? shadowGray : .clear)
                 .offset(x: 0, y: -8)
         )
+        .onAppear(perform: {
+            updateText(to: currentStep)
+        })
+        .onChange(of: currentStep, perform: { newStep in
+            isEditing = false
+            updateText(to: newStep)
+        })
     }
 }
 
 
 extension StepTextListView {
-    func edit() {
-        isEditing.toggle()
+    func updateText(to step: Int) { // updates text to current step text
+        text = item.steps[step].text
     }
-    func addText() {
-        item.steps[currentStep].text.append(StepText())
+    func saveChanges(to step: Int) { // saves changes made to step
+        item.steps[step].text = text
+    }
+    func edit() { // to edit the current step text
+        isEditing.toggle()
+        if !isEditing {
+            saveChanges(to: currentStep)
+        }
+    }
+    func addText() { // to add a new text section to current step text
+        text.append(StepText())
     }
 }
 

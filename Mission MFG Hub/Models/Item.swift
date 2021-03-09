@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class Item: ObservableObject {
+class Item: ObservableObject, Identifiable {
     init(partNum : String, partTitle : String, partDesc : String, qty : Int, pricePer : Float, priceTotal : Float, weightPer : Float, steps : [Step]) {
         self.partNum = partNum
         self.partTitle = partTitle
@@ -28,6 +28,7 @@ class Item: ObservableObject {
     @Published var weightPer : Float
     @Published var steps : [Step]
     @Published var currentStep : Int = 0
+    let id = UUID()
 }
 
 var testItem = Item(partNum: "TTN-FK-TRP", partTitle: "Triple Fork", partDesc: "Triple Fork for wakeboard racks", qty: 120, pricePer: 130.00, priceTotal: 15600.00, weightPer: 1.1, steps: [testStep, testStep2])

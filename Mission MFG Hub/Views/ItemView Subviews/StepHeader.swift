@@ -41,6 +41,7 @@ struct StepHeader: View {
             .transition(.moveUpWardsWhileFadingIn)
             
             Line(width: 660, color: gray3).padding()
+                .padding(.bottom, 8)
         }.onChange(of: currentStep, perform: { value in // update time according to step
             taskTime = item.steps[currentStep].calculateTime(qty: item.qty)
             item.currentStep = currentStep
