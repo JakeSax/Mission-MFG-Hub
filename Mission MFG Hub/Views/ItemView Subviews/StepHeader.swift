@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StepHeader: View {
-    @Binding var item: Item
+    @ObservedObject var item: Item
     @Binding var currentStep: Int
     @State var taskTime: String = "Enter Time"
     var body: some View {

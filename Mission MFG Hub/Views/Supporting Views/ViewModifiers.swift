@@ -25,6 +25,7 @@ struct strokeAndShadowMod: ViewModifier {
     var strokeWidth: CGFloat = 1
     var shadowColor: Color = gray4
     var shadowY: CGFloat = 4
+    var shadowX: CGFloat = 0
     var shadowRadius: CGFloat = 8
     
     func body(content: Content) -> some View {
@@ -32,7 +33,7 @@ struct strokeAndShadowMod: ViewModifier {
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(strokeColor, lineWidth: strokeWidth))
-            .shadow(color: shadowColor, radius: shadowRadius, x: 0, y: shadowY)
+            .shadow(color: shadowColor, radius: shadowRadius, x: shadowX, y: shadowY)
     }
 }
 
@@ -141,8 +142,8 @@ extension View {
     func lightenOnHover() -> some View {
         self.modifier(lightenOnHoverMod())
     }
-    func strokeAndShadow(cornerRadius: CGFloat = 12, strokeColor: Color = .black, strokeWidth: CGFloat = 1, shadowColor: Color = gray4,  shadowY: CGFloat = 4, shadowRadius: CGFloat = 8) -> some View {
-        self.modifier(strokeAndShadowMod(cornerRadius: cornerRadius, strokeColor: strokeColor, strokeWidth: strokeWidth, shadowColor: shadowColor,  shadowY: shadowY, shadowRadius: shadowRadius))
+    func strokeAndShadow(cornerRadius: CGFloat = 12, strokeColor: Color = .black, strokeWidth: CGFloat = 1, shadowColor: Color = gray4,  shadowY: CGFloat = 4, shadowX: CGFloat = 0, shadowRadius: CGFloat = 8) -> some View {
+        self.modifier(strokeAndShadowMod(cornerRadius: cornerRadius, strokeColor: strokeColor, strokeWidth: strokeWidth, shadowColor: shadowColor,  shadowY: shadowY, shadowX: shadowX, shadowRadius: shadowRadius))
     }
     
 }

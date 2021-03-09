@@ -40,7 +40,7 @@ struct OrderView: View {
                 
                 Spacer()
                 ZStack {
-                    RoundedRect(color: gray1, strokeColor: gray5, strokeWidth: 1.2, topLeft: 20, topRight: 16, bottomLeft: 0, bottomRight: 16)
+                    RoundedRect(color: gray1, strokeColor: gray5, strokeWidth: 1.2, topLeft: 20, topRight: 16, bottomRight: 16, bottomLeft: 0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 48) {
                             ForEach(0 ..< order.items.count, id: (\.self)) { num in

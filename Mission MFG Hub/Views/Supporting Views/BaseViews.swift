@@ -19,10 +19,9 @@ struct RoundedRect: View {
     var shadowY: CGFloat = 6
     var topLeft: CGFloat = 0.0
     var topRight: CGFloat = 0.0
-    var bottomLeft: CGFloat = 0.0
     var bottomRight: CGFloat = 0.0
+    var bottomLeft: CGFloat = 0.0
 
-    
     var body: some View {
         Group {
             GeometryReader { geometry in
@@ -72,6 +71,54 @@ struct RoundedRect: View {
                         path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
                     }.stroke(strokeColor, lineWidth: strokeWidth)
                 )
+            }
+        }
+    }
+}
+
+// Horizontal Binary Toggle View
+struct TextToggle: View {
+    var textLeft: String = "On"
+    var textRight: String = "Off"
+    var textColorActive: Color = white
+    var textColorInactive: Color = gray4
+    var colorActive: Color = gray7
+    var colorInactive: Color = gray1
+    var cornerRadius: CGFloat = 24
+    var verticalPadding: CGFloat = 10
+    var horizontalPadding: CGFloat = 32
+    
+    @Binding var leftPressed: Bool
+    
+    var body: some View {
+        ZStack {
+            // BKGD RECT
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .shadow(color: shadowGray, radius: 12, x: 0, y: 5)
+            
+            HStack(alignment: .center, spacing: 0) {
+                
+                // LEFT BUTTON
+                ZStack {
+                    RoundedRect(color: leftPressed ? colorActive : colorInactive, topLeft: cornerRadius, topRight: 0, bottomRight: 0, bottomLeft: cornerRadius)
+                    Text(textLeft)
+                        .foregroundColor(leftPressed ? textColorActive : textColorInactive)
+                        .H6Style()
+                        .padding(EdgeInsets(top: verticalPadding, leading: horizontalPadding, bottom: verticalPadding, trailing: horizontalPadding))
+                }.onTapGesture(perform: { withAnimation {
+                    leftPressed = true
+                }})
+                
+                // RIGHT BUTTON
+                ZStack {
+                    RoundedRect(color: leftPressed ? colorInactive : colorActive, topLeft: 0, topRight: cornerRadius, bottomRight: cornerRadius, bottomLeft: 0)
+                    Text(textRight)
+                        .foregroundColor(leftPressed ? textColorInactive : textColorActive)
+                        .H6Style()
+                        .padding(EdgeInsets(top: verticalPadding, leading: horizontalPadding, bottom: verticalPadding, trailing: horizontalPadding))
+                }.onTapGesture(perform: { withAnimation {
+                    leftPressed = false
+                }})
             }
         }
     }

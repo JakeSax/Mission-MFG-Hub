@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemHeader: View {
-    @State var item : Item
+    @ObservedObject var item : Item
     var body: some View {
             Group {
                 Text(item.partTitle)

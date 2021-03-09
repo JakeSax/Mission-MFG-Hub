@@ -24,6 +24,7 @@
 		8AAEFED525D23E08001F42B5 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEC925D23DEF001F42B5 /* ViewModifiers.swift */; };
 		8ADCFAC125F06E1B0075C1EA /* ItemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADCFAC025F06E1B0075C1EA /* ItemPreview.swift */; };
 		8ADCFACE25F2EFF20075C1EA /* HeaderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADCFACD25F2EFF20075C1EA /* HeaderTextField.swift */; };
+		8ADCFAD925F302FC0075C1EA /* BodyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADCFAD825F302FC0075C1EA /* BodyTextField.swift */; };
 		8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE2E25D230F30005DA66 /* Mission_MFG_HubApp.swift */; };
 		8AE2CE3125D230F30005DA66 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CE3025D230F30005DA66 /* ItemView.swift */; };
 		8AE2CE3325D230F40005DA66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2CE3225D230F40005DA66 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		8AAEFEE825D24534001F42B5 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		8ADCFAC025F06E1B0075C1EA /* ItemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPreview.swift; sourceTree = "<group>"; };
 		8ADCFACD25F2EFF20075C1EA /* HeaderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTextField.swift; sourceTree = "<group>"; };
+		8ADCFAD825F302FC0075C1EA /* BodyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyTextField.swift; sourceTree = "<group>"; };
 		8AE2CE2B25D230F30005DA66 /* Mission MFG Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mission MFG Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE2CE2E25D230F30005DA66 /* Mission_MFG_HubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission_MFG_HubApp.swift; sourceTree = "<group>"; };
 		8AE2CE3025D230F30005DA66 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				8A546B2A25D6133C00B0980A /* StepHeader.swift */,
 				8A546B4025D6178200B0980A /* StepTextListView.swift */,
 				8ADCFACD25F2EFF20075C1EA /* HeaderTextField.swift */,
+				8ADCFAD825F302FC0075C1EA /* BodyTextField.swift */,
 				8A546B5925D63FF400B0980A /* PhotoView.swift */,
 				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
 			);
@@ -398,6 +401,7 @@
 				8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */,
 				8A7AB94125D746C20027ECD7 /* OrderView.swift in Sources */,
 				8AAEFECE25D23E03001F42B5 /* BaseViews.swift in Sources */,
+				8ADCFAD925F302FC0075C1EA /* BodyTextField.swift in Sources */,
 				8A7AB92B25D7416E0027ECD7 /* MemberView.swift in Sources */,
 				8ADCFACE25F2EFF20075C1EA /* HeaderTextField.swift in Sources */,
 			);

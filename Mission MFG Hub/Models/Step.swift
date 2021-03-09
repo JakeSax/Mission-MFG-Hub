@@ -8,9 +8,13 @@
 import SwiftUI
 
 class Step: ObservableObject {
-    init(title: String, text: [ String:String ], images: [ (Image, String) ], print: (Image, String), taskTimeTuple: (String, String), machine: String, program: String) {
+    init(title: String, text: [[String]], images: [ (Image, String) ], print: (Image, String), taskTimeTuple: (String, String), machine: String, program: String) {
         self.title = title
-        self.text = text
+        var array: [StepText] = []
+        for stepText in text  {
+            array.append(StepText(header: stepText[0], body: stepText[1]))
+        }
+        self.text = array
         self.images = images
         self.print = print
         self.taskTimeTuple = taskTimeTuple
@@ -19,11 +23,11 @@ class Step: ObservableObject {
     }
     
     @State var title: String // title of step
-    @Published var text: [ String:String ] // [ Header : Body ]
-    @State var images: [ (Image, String) ] // [ (Image: Desc) ]
-    @State var print: (Image, String) // (Image: Desc)
-    @State var taskTimeTuple: (String, String) // ("By Step", "30") or ("By Per", "4")
-    lazy var taskTime: (TimeDivision, Float) = convertTimeStrings(timeTuple: taskTimeTuple)
+    @Published var text: [StepText]
+    @State var images: [ (image: Image, description: String) ] // [ (Image: Desc) ]
+    @State var print: (image: Image, description: String) // (Image: Desc)
+    @State var taskTimeTuple: (timeDivision: String, time: String) // ("By Step", "30") or ("By Per", "4")
+    lazy var taskTime: (timeDivision: TimeDivision, time: Float) = convertTimeStrings(timeTuple: taskTimeTuple)
     @State var timeFormat: TimeFormat = .minutes
     @State var machine: String
     @State var program: String
@@ -83,9 +87,9 @@ class Step: ObservableObject {
 var testTaskTimeTuple: (String, String) = ("By Step", "30")
 var testTaskTimeTuple2: (String, String) = ("By Per", "4")
 
-var testStep = Step(title: "Machine Setup", text: ["Setup Instructions": "These are a set of instructions about all the ways in which you are supposed to set up this specific part. Deburr the edges of the material and place it down pushing it up to the top left of the stop. Then tighten the vise firmly.", "Warnings": "These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"], images: [(Image("Triple Forks"), "Finished Triple Forks"), (Image("Triple Forks"), "Finished Triple Forks 2")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple,  machine: "VF3", program: "N/A")
+var testStep = Step(title: "Machine Setup", text: [["Setup Instructions", "These are a set of instructions about all the ways in which you are supposed to set up this specific part. Deburr the edges of the material and place it down pushing it up to the top left of the stop. Then tighten the vise firmly."], ["Warnings", "These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"]], images: [(Image("Triple Forks"), "Finished Triple Forks"), (Image("Triple Fork Ano Board Rack 1"), "Triple Fork Ano Board Rack")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple,  machine: "VF3", program: "N/A")
 
-var testStep2 = Step(title: "Operate Mill", text: ["Part Holding": "First clear the vise of any loose chips or coolant. Ensure that the back side of the jaws are clean as well. Once you have deburred the material, place it deburred side down and push it up against the back of the jaw and all the way to left against the stop. Push the material down and to the left corner away from you as you tighten the jaws. Tighten firmly.", "Tips & Warnings": "But hey watch out for some things that I'm about to explain right now. I'm gonna explain a number of things so watch out or else you might get hurt or hurt the machine or ruin the part. Okay, I'm gonna explain it now.These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"], images: [(Image("Triple Forks"), "Finished Triple Forks"), (Image("Triple Forks"), "Finished Triple Forks 2")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple2, machine: "VF3", program: "1043")
+var testStep2 = Step(title: "Operate Mill", text: [["Part Holding", "First clear the vise of any loose chips or coolant. Ensure that the back side of the jaws are clean as well. Once you have deburred the material, place it deburred side down and push it up against the back of the jaw and all the way to left against the stop. Push the material down and to the left corner away from you as you tighten the jaws. Tighten firmly."], ["Tips & Warnings", "But hey watch out for some things that I'm about to explain right now. I'm gonna explain a number of things so watch out or else you might get hurt or hurt the machine or ruin the part. Okay, I'm gonna explain it now.These are a number of warnings and things to watch out for when running these parts. They often do this or that bad thing, or a tool may accumulate chips, or some other thing that I can’t think of right now. But there are bad things that can happen so we’re writing this so you’ll know about what specific bad things happen when you aren’t careful"]], images: [(Image("Triple Forks"), "Finished Triple Forks")], print: (Image("Triple Forks"), "Triple Fork Print"), taskTimeTuple: testTaskTimeTuple2, machine: "VF3", program: "1043")
 
 
 enum TimeDivision: String {
@@ -99,9 +103,15 @@ enum TimeFormat: String {
     case hours = "HR"
 }
 
-struct StepText {
-//    let id = UUID()
-    @State var header: String = "Add Header"
+struct StepText: Hashable, Identifiable {
+    static func == (lhs: StepText, rhs: StepText) -> Bool {
+        lhs.header == rhs.header && lhs.body == rhs.body
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(header)
+        hasher.combine(body)
+    }
+    let id = UUID()
+    @State var header: String = "Add Header here"
     @State var body: String = "Add text here…"
-    
 }

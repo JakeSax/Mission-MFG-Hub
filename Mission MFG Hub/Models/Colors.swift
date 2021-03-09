@@ -21,6 +21,7 @@ let successGreen = Color("Success Green")
 let troubleRed = Color("Trouble Red")
 let errorYellow = Color("Error Yellow")
 let shadowGray = gray4
+let shadowGrayLight = gray2
 
 
 

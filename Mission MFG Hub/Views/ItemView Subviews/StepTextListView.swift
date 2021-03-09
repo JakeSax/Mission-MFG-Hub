@@ -9,14 +9,10 @@ import SwiftUI
 
 struct StepTextListView: View {
     
-    @Binding var item: Item
+    @ObservedObject var item: Item
     @Binding var currentStep: Int
     @State var isEditing: Bool = false
-    @State var text: [String:String] = ["Header":"Body"]
-    @State var headerText: String = ""
-    @State var bodyText: String = ""
     var refreshAction: () -> Void
-    var editAction: () -> Void
     
     var body: some View {
         Group {
@@ -29,68 +25,18 @@ struct StepTextListView: View {
                     }.rightAlign()
                     .offset(x: -20, y: 28)
                     .padding(-20)
-//                    ForEach((item.steps[currentStep].text.keys).sorted(), id: \.self) { key in
-                    ForEach((text.keys).sorted(), id: \.self) { key in
-//                        if !isEditing {
-                        Text(key)
-                            .H5Style()
-                            .foregroundColor(black)
-                            .onTapGesture(count: 2, perform: {
-                                withAnimation { isEditing.toggle() }
-                            })
-                            .overlay(
-                                TextField(key, text: $headerText)
-                                    .H5Style()
-                                    .foregroundColor(.clear)
-                                    .background(white.opacity(0))
-                                    .opacity(isEditing ? 1 : 0)
-                                    .onChange(of: headerText, perform: { value in
-//                                        key = headerText
-                                    })
-                            )
-//                        Text(item.steps[currentStep].text[key]!)
-                        Text(text[key]!)
-                            .BodyStyle()
-                            .foregroundColor(gray6)
-                            .padding(.bottom, 16)
-                            .onTapGesture(count: 2, perform: {
-                                withAnimation { isEditing.toggle() }
-                            })
-//                        }
-//                        if isEditing {
-//                            TextField(key, text: $headerText)
-//                                .H5Style()
-//                                .foregroundColor(black)
-//                                .background(gray1.opacity(0))
-//                                .overlay(
-//                                    Text(key)
-//                                        .H5Style()
-//                                        .foregroundColor(black)
-//                                        .leftAlign()
-//                                        .onTapGesture(count: 2, perform: {
-//                                            withAnimation { isEditing.toggle() }
-//                                        })
-//                                        )
-                            
-                                
-//                            TextEditor(text: $bodyText)
-//                                .BodyStyle()
-//                                .foregroundColor(gray6)
-//                                .background(gray1)
-//                                .padding(.bottom, 16)
-//                        }
+                    
+                    ForEach(item.steps[currentStep].text.indices, id: \.self) { idx in
+                        HeaderTextField(headerText: item.steps[currentStep].text[idx].header, isEditing: $isEditing)
+                        BodyTextField(bodyText: item.steps[currentStep].text[idx].body, isEditing: $isEditing)
                     }
+                    .onChange(of: currentStep, perform: { value in
+                        // commit text to current step and get new text for new step
+                        isEditing = false
+                    })
                 }
             }.padding()
             .padding(.top, -20)
-            .onAppear(perform: {
-                withAnimation{ text = item.steps[currentStep].text }
-            })
-            .onChange(of: isEditing, perform: { value in
-                item.steps[currentStep].text = text
-                print("Item: \(item.steps[currentStep].text)")
-            })
-            
             
             Spacer()
         }.background(
@@ -105,10 +51,20 @@ struct StepTextListView: View {
 
 extension StepTextListView {
     func edit() {
-            isEditing.toggle()
+        isEditing.toggle()
     }
     func addText() {
-        text["Add Header Here"] = "Add step text here"
+        item.steps[currentStep].text.append(StepText())
     }
 }
 
+
+extension NSTextView {
+    open override var frame: CGRect {
+        didSet {
+            backgroundColor = .clear // This makes the background of text fields empty
+            drawsBackground = true
+            insertionPointColor = .black // This makes the text cursor black
+        }
+    }
+}

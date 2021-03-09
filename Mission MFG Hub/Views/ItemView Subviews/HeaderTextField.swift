@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct HeaderTextField: View {
-    @State var headerText: String = ""
-    @State private var isEditing: Bool = false
+    @State var headerText: String
+    @Binding var isEditing: Bool
     var body: some View {
-        Text("Hello, World!")
-            .H5Style()
-            .foregroundColor(black)
-            .onTapGesture(count: 2, perform: {
-                withAnimation { isEditing.toggle() }
-            })
-    }
-}
-
-struct HeaderTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderTextField()
+        ZStack(alignment: .topLeading) {
+            TextField(headerText, text: $headerText)
+                .textFieldStyle(PlainTextFieldStyle())
+                .H5Style()
+                .foregroundColor(black)
+                .opacity(isEditing ? 1 : 0)
+            Text(headerText)
+                .H5Style()
+                .foregroundColor(black)
+                .opacity(isEditing ? 0 : 1)
+        }.frame(width: 575)
+        .onTapGesture(count: 2, perform: {
+            withAnimation { isEditing.toggle() }
+        })
     }
 }

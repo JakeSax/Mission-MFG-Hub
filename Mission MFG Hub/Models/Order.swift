@@ -23,8 +23,8 @@ class Order: ObservableObject {
     }
     
     var customerName: String
-    @State var poNum: String
-    @State var orderNum: String
+    @Published var poNum: String
+    @Published var orderNum: String
     var termsString: String
     var terms: Terms
     var dateString: String
@@ -33,7 +33,7 @@ class Order: ObservableObject {
     var dueDate: Date?
     var orderTotal: Float
     var orderNotes: String
-    @State var items: [Item]
+    @Published var items: [Item]
     
     func getDateString() -> String {
         guard let date = date
@@ -63,19 +63,6 @@ fileprivate func determineDate(_ dateString: String) -> Date? {
     return date
 }
 
-
-
-//fileprivate func determineDueDate(_ date: Date?, terms: Terms) -> Date? {
-//    print("DetermineDueDate from file Order is incomplete")
-//    if let safeDate = date {
-////        safeDate.addTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>)
-//        // date + days from terms
-//        return safeDate
-//    }
-//    return nil
-//}
-
-
 var testOrder = Order(customerName: "Titan Wake", poNum: "110834", orderNum: "TTN-110834", termsString: "Net 30", dateString: "2/10/21", orderTotal: 600, orderNotes: "", items: [testItem])
 var testOrder2 = Order(customerName: "Eteros Technology", poNum: "110839", orderNum: "ETS-110839", termsString: "Net 30", dateString: "2/12/21", orderTotal: 40, orderNotes: "", items: [testItem, testItem2, testItem3])
 var testOrder3 = Order(customerName: "Marquez Design", poNum: "110840", orderNum: "MQZ-110840", termsString: "Net 30", dateString: "2/11/21", orderTotal: 60, orderNotes: "", items: [testItem, testItem2])
@@ -87,3 +74,14 @@ enum Terms: String {
     case invalid = "Invalid"
 }
 
+
+
+//fileprivate func determineDueDate(_ date: Date?, terms: Terms) -> Date? {
+//    print("DetermineDueDate from file Order is incomplete")
+//    if let safeDate = date {
+////        safeDate.addTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>)
+//        // date + days from terms
+//        return safeDate
+//    }
+//    return nil
+//}
