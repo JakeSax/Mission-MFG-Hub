@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct OrderView: View {
+    @EnvironmentObject private var userData: UserData
     var order: Order = testOrder
-    @State var isShowingItemView: Bool = false
-    var presentItemView: (_ item: Item) -> Void
+    @Binding var isShowingItemView: Bool 
+    @Binding var isShowingParentView: Bool
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
@@ -22,7 +24,7 @@ struct OrderView: View {
                     Text(order.customerName)
                         .foregroundColor(black)
                         .H3Style()
-                    Line(width: 400, color: gray3).padding(.bottom, 8)
+                    Line(width: 540, maxWidth: 540, color: gray3).padding(.bottom, 8)
                     Text("Date: \(order.getDateString())")
                         .foregroundColor(gray7)
                         .LabelStyle()
@@ -36,32 +38,42 @@ struct OrderView: View {
                     Text("ORDER #: \(order.orderNum)")
                         .foregroundColor(gray7)
                         .H6Style()
-                }.padding(EdgeInsets(top: 40, leading: 32, bottom: 32, trailing: 192))
+                }.padding(EdgeInsets(top: 40, leading: 32, bottom: 32, trailing: 96)) // trailing 192
                 
-                Spacer()
                 ZStack {
                     RoundedRect(color: gray1, strokeColor: gray5, strokeWidth: 1.2, topLeft: 20, topRight: 16, bottomRight: 16, bottomLeft: 0)
                     ScrollView(.horizontal) {
                         HStack(spacing: 48) {
                             ForEach(0 ..< order.items.count, id: (\.self)) { num in
                                 ItemPreview(item: order.items[num])
-                                    .onTapGesture(perform: {
-                                        presentItemView(order.items[num])
-                                    })
+                                    .onTapGesture(perform: { withAnimation {
+                                        presentItemView(item: order.items[num], order: order)
+                                    }})
                             }
                             Spacer()
                         }.padding(EdgeInsets(top: 24, leading: 36, bottom: 24, trailing: 36))
                     }
                 }
             }
-            RoundedRectangle(cornerRadius: 16).stroke(gray5, lineWidth: 1.2) // to fix stroke bug
         }.frame(width: 1720, height: 338)
+        .environmentObject(userData)
+    }
+}
+
+extension OrderView {
+    func presentItemView(item: Item, order: Order) {
+//        if userData.openTabs.co
+        userData.openTabs.append((item: item, order: order))
+        isShowingParentView = false
+        isShowingItemView = true
+//        }
     }
 }
 
 
-struct OrderView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderView(presentItemView: {_ in })
-    }
-}
+
+//struct OrderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OrderView(presentItemView: {_ in })
+//    }
+//}

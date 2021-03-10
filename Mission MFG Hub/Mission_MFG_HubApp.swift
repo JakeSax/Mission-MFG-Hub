@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct Mission_MFG_HubApp: App {
+    @StateObject private var userData: UserData = UserData()
     var body: some Scene {
         WindowGroup {
             ZStack {
                 white
                 VStack {
-                    MenuView()
+                    MenuView().environmentObject(userData)
                     Spacer()
 //                    ItemView(item: testItem)
                 }

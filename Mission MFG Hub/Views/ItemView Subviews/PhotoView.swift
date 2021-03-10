@@ -14,6 +14,7 @@ struct PhotoView: View {
     @State var photoNum: Int = 0
     @State var isHovering: Bool = false
     @State var primaryImage: (image: Image, description: String)?
+    
     var body: some View {
         VStack {
             ZStack {
@@ -60,6 +61,9 @@ struct PhotoView: View {
         })
         .onAppear(perform: { withAnimation{
             primaryImage = item.steps[currentStep].print
+        }})
+        .onChange(of: photoNum, perform: { value in withAnimation {
+            primaryImage = item.steps[currentStep].images[photoNum]
         }})
     }
 }

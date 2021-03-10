@@ -69,6 +69,7 @@ struct RoundedRect: View {
                         path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
                         path.addLine(to: CGPoint(x: 0, y: tl))
                         path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
+                        path.addLine(to: CGPoint(x: w/2, y: 0))
                     }.stroke(strokeColor, lineWidth: strokeWidth)
                 )
             }

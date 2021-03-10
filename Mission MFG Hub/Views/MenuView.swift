@@ -8,40 +8,61 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State private var selectedTab: Int = 0
+    @EnvironmentObject private var userData : UserData
+    
+    @State private var selectedMenuItem: Int = 0
+    @State private var isShowingSelectedMenuItem: Bool = true
     let menuItems = ["Orders", "Items", "Members"]
+    
+    @State private var isShowingItemView: Bool = false
     
     var body: some View {
         ZStack {
             white
+            
+            //MARK: - Menu
             VStack {
                 HStack(alignment: .center, spacing: 64) {
                     ForEach(0 ..< menuItems.count, id: \.self) { num in
                         Text(menuItems[num]).foregroundColor(ifSelected(num) ? black : gray5)
-                            .onTapGesture(perform: { self.selectedTab = num })
+                            .onTapGesture(perform: { withAnimation {
+                                self.selectedMenuItem = num
+                                isShowingItemView = false
+                                isShowingSelectedMenuItem = true
+                            }})
                             .MenuTextStyle()
                             .offset(y: 2)
                             .lightenOnHover()
                     }
                     Line(width: 748, color: gray5).offset(y: 2)
                     Image("Logo")
-                }.padding(EdgeInsets(top: 20, leading: 64, bottom: 12, trailing: 64))
+                }.padding(EdgeInsets(top: 16, leading: 64, bottom: 8, trailing: 64))
                 Line(width: 1000, color: black).padding(0)
-                switch selectedTab {
-                case 0: ItemView(item: testItem) // should be OrderListView()
-                case 1: ItemListView()
-                case 2: OrderListView() // should be ItemView
-                default: OrderListView()
+                
+                
+                //MARK: - Selected Views
+                if isShowingSelectedMenuItem {
+                    switch selectedMenuItem {
+                    case 0: OrderListView(isShowingItemView: $isShowingItemView, isShowingParentView: $isShowingSelectedMenuItem) 
+                    case 1: ItemListView()
+                    case 2: MemberListView()
+                    default: ItemListView()
+                    }
+                }
+                
+                if isShowingItemView {
+                    ItemTabBarView(isShowingItemView: $isShowingItemView, isShowingOrderView: $isShowingSelectedMenuItem)
                 }
                 Spacer()
+                
             }
-        }
+        }.environmentObject(userData)
     }
 }
 
 extension MenuView {
     func ifSelected(_ num: Int) -> Bool {
-        return num == self.selectedTab
+        return num == self.selectedMenuItem
     }
 }
 
