@@ -21,7 +21,7 @@ struct RoundedRect: View {
     var topRight: CGFloat = 0.0
     var bottomRight: CGFloat = 0.0
     var bottomLeft: CGFloat = 0.0
-
+    
     var body: some View {
         Group {
             GeometryReader { geometry in
@@ -69,13 +69,75 @@ struct RoundedRect: View {
                         path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
                         path.addLine(to: CGPoint(x: 0, y: tl))
                         path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
-                        path.addLine(to: CGPoint(x: w/2, y: 0))
+                        path.addLine(to: CGPoint(x: w/2, y: 0)) // added to this finish stroke
                     }.stroke(strokeColor, lineWidth: strokeWidth)
                 )
             }
         }
     }
 }
+
+// Basic Text that can be edited by double click, with optional onCommit functions and uneditable preceding text
+// press CMD+ENTER to commit text
+struct EditableTextStyle: View {
+    var precedingText: String?
+    @State var text: String
+    @State private var isEditing: Bool = false
+    @State private var editedText: String = ""
+    
+    var textColor: Color = black
+    var editingTextColor: Color = black
+    var onCommit: () -> Void = {}
+    var effectOnHover: Brightness = .darken
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 0) {
+            if precedingText != nil {
+                if let safeText = precedingText {
+                    Text(safeText)
+                        .foregroundColor(textColor)
+                }
+            }
+            
+            ZStack(alignment: .topLeading) {
+                Button("", action: {isEditing = false})
+                    .hidden()
+                    .keyboardShortcut(KeyEquivalent.return)
+                
+                TextField(editedText, text: $editedText)
+                    .opacity(isEditing ? 1 : 0)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .foregroundColor(editingTextColor)
+                
+                Text(text)
+                    .opacity(isEditing ? 0 : 1)
+                    .foregroundColor(textColor)
+            }
+            
+            .onAppear(perform: {
+                editedText = text
+            })
+            
+            .onChange(of: isEditing, perform: { value in
+                print("is Editing: \(isEditing)")
+                if isEditing == false {
+                    onCommit()
+                    text = editedText
+                }
+            })
+            
+            .onHoverBrightness(effect: effectOnHover)
+        }.onTapGesture(count: 2, perform: {
+            withAnimation { isEditing.toggle() }
+        })
+        
+    }
+}
+
+func TextEditable( _ text: String, precedingText: String? = nil, textColor: Color = black, editingTextColor: Color = black, onCommit: @escaping () -> Void = {}, effectOnHover: Brightness = .lighten) -> some View {
+    return EditableTextStyle(precedingText: precedingText, text: text, textColor: textColor, editingTextColor: editingTextColor, onCommit: onCommit, effectOnHover: effectOnHover)
+}
+
 
 // Horizontal Binary Toggle View
 struct TextToggle: View {

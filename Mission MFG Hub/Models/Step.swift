@@ -23,7 +23,6 @@ class Step: ObservableObject, Identifiable {
     }
     
     @State var title: String // title of step
-//    @Published var text: [(header: String, body: String)]
     @Published var text: [StepText]
     @State var images: [ (image: Image, description: String) ] // [ (Image: Desc) ]
     @State var print: (image: Image, description: String) // (Image: Desc)
@@ -105,9 +104,9 @@ enum TimeFormat: String {
     case hours = "HR"
 }
 
-class StepText: ObservableObject, Identifiable{
+class StepText: ObservableObject, Identifiable, Hashable{
     static func == (lhs: StepText, rhs: StepText) -> Bool {
-        lhs.header == rhs.header && lhs.body == rhs.body
+        lhs.header == rhs.header && lhs.body == rhs.body && lhs.id == rhs.id
     }
     
     init(header: String = "Add Header", body: String = "Add text here") {
@@ -115,7 +114,14 @@ class StepText: ObservableObject, Identifiable{
         self.body = body
     }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(header)
+        hasher.combine(body)
+        hasher.combine(id)
+    }
+    
     @Published var header: String
     @Published var body: String 
     let id = UUID()
 }
+

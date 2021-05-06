@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct HeaderTextField: View {
-    @State var headerText: String
+    @Binding var headerText: String
     @Binding var isEditing: Bool
+    @State var editedText: String = ""
+    let id = UUID()
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
-            TextField(headerText, text: $headerText)
+            Button("", action: {isEditing = false})
+                .hidden()
+                .keyboardShortcut(KeyEquivalent.return)
+            
+            TextField(editedText, text: $editedText)
                 .textFieldStyle(PlainTextFieldStyle())
                 .H5Style()
                 .foregroundColor(black)
                 .opacity(isEditing ? 1 : 0)
+                
             Text(headerText)
                 .H5Style()
                 .foregroundColor(black)
@@ -24,6 +32,14 @@ struct HeaderTextField: View {
         }.frame(width: 575)
         .onTapGesture(count: 2, perform: {
             withAnimation { isEditing.toggle() }
+        })
+        .onAppear(perform: {
+            editedText = headerText
+        })
+        .onChange(of: isEditing, perform: { value in
+            if isEditing == false {
+                headerText = editedText
+            }
         })
     }
 }

@@ -158,6 +158,34 @@ struct AddTextButton: View {
     }
 }
 
+struct MinusButton: View {
+    let image = "minus.circle.fill"
+    @Binding var isActive: Bool
+    var action: () -> Void
+    
+    var body: some View {
+        IconStateButton(isActive: $isActive, activeAction: action, image: image, size: 28, defaultColor: gray7, pressedColor: gray5, bkgdColor: .clear, shadowColor: .clear)
+            .opacity(isActive ? 1 : 0)
+            .lightenOnHover()
+            
+    }
+}
+
+
+
+struct RemoveTextButton: View {
+    let image = "minus.circle.fill"
+    @Binding var isActive: Bool
+    var action: () -> Void
+    
+    var body: some View {
+        IconStateButton(isActive: $isActive, activeAction: action, image: image, size: 22, defaultColor: gray7, pressedColor: gray5, bkgdColor: .clear, shadowColor: .clear)
+            .opacity(isActive ? 1 : 0)
+            .lightenOnHover()
+            .offset(x: 0, y: -1.5)
+    }
+}
+
 
 struct EditButton: View {
     var image = "pencil.circle"

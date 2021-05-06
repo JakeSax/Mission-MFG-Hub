@@ -32,3 +32,12 @@ extension Float {
         return String(format: "%1.f", self)
     }
 }
+
+
+// MARK: - Ease of use Enums
+
+
+enum Brightness {
+    case lighten
+    case darken
+}

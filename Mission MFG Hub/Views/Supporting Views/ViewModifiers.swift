@@ -59,6 +59,28 @@ struct lightenOnHoverMod: ViewModifier {
     }
 }
 
+struct hoverMod: ViewModifier {
+    @State var isHovering: Bool = false
+    var brightness: Brightness = .darken
+    func body(content: Content) -> some View {
+        content
+            .brightness(isHovering ? (checkBrightness(brightness) ? -0.3 : 0.3) : 0)
+            .onHover(perform: { hovering in
+                self.isHovering = hovering
+            })
+    }
+    
+    func checkBrightness(_ brightness: Brightness) -> Bool {
+        if brightness == .darken {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+}
+
 
 struct leftAlignMod: ViewModifier {
     func body(content: Content) -> some View {
@@ -144,6 +166,9 @@ extension View {
     }
     func strokeAndShadow(cornerRadius: CGFloat = 12, strokeColor: Color = .black, strokeWidth: CGFloat = 1, shadowColor: Color = gray4,  shadowY: CGFloat = 4, shadowX: CGFloat = 0, shadowRadius: CGFloat = 8) -> some View {
         self.modifier(strokeAndShadowMod(cornerRadius: cornerRadius, strokeColor: strokeColor, strokeWidth: strokeWidth, shadowColor: shadowColor,  shadowY: shadowY, shadowX: shadowX, shadowRadius: shadowRadius))
+    }
+    func onHoverBrightness(effect: Brightness = .darken) -> some View {
+        self.modifier(hoverMod(brightness: effect))
     }
     
 }

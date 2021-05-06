@@ -24,7 +24,7 @@ struct ItemView: View {
                     
                     StepHeader(item: item, currentStep: $currentStep)
                     
-                    StepTextListView(item: item, currentStep: $currentStep, refreshAction: updateView, text: item.steps[currentStep].text)
+                    StepTextListView(item: item, currentStep: $currentStep, stepText: item.steps[currentStep].text)
                     
                 }.padding()
                 .frame(width: 800, alignment: .leading)
@@ -49,8 +49,7 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ItemView {
     func updateView() {
-//        item.steps[currentStep].calculateTime(qty: item.qty)
-//        print("whatever update you gotta do")
+        // get current step
     }
 }
 

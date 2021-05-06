@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct BodyTextField: View {
-    @State var bodyText: String
+    @Binding var bodyText: String
     @Binding var isEditing: Bool
+    @State private var editedText: String = ""
+    let id = UUID()
     
     var body: some View {
-        ZStack(alignment: .topLeading){
-            TextEditor(text: $bodyText)
+        ZStack(alignment: .topLeading) {
+            Button("", action: {isEditing = false})
+                .hidden()
+                .keyboardShortcut(KeyEquivalent.return)
+            TextEditor(text: $editedText)
                 .accentColor(.black)
                 .BodyStyle()
                 .foregroundColor(black)
@@ -26,6 +31,14 @@ struct BodyTextField: View {
                 .opacity(isEditing ? 0 : 1)
         }.onTapGesture(count: 2, perform: {
             withAnimation { isEditing.toggle() }
+        })
+        .onAppear(perform: {
+            editedText = bodyText
+        })
+        .onChange(of: isEditing, perform: { value in
+            if isEditing == false {
+                bodyText = editedText
+            }
         })
     }
 }

@@ -26,8 +26,9 @@ struct ItemTabView: View {
                     .BodyStyle()
                     .foregroundColor(isSelected ? gray1 : gray5)
                     .padding([.leading, .trailing], 20)
+                Spacer(minLength: 0)
                 IconButton(action: deleteAction, image: "xmark.circle", size: 20, defaultColor: isSelected ? gray1 : gray5, bkgdColor: .clear, shadowColor: .clear)
-                    .padding(.trailing, 8)
+                    .padding(.trailing, 12)
                     .darkenOnHover() 
             }
         }.frame(idealWidth: 320, maxWidth: 400, maxHeight: 40)

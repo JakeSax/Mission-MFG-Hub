@@ -125,6 +125,9 @@ extension View {
     func H1Style() -> some View {
         self.modifier(H1())
     }
+//    func F1Style() -> some View {
+//        self.fore
+//    }
     func H2Style() -> some View {
         self.modifier(H2())
     }

@@ -32,13 +32,14 @@ struct StepHeader: View {
                     .onTapGesture(perform: { // converts to hours/mins
                                     taskTime = item.steps[currentStep].convertTime(str: taskTime) })
                     .darkenOnHover()
+                    
                 Spacer()
                 Text("Program: \(item.steps[currentStep].program)")
             }.LabelStyle()
             .foregroundColor(gray6)
             .padding()
             .padding(.bottom, -12)
-            .transition(.moveUpWardsWhileFadingIn)
+//            .transition(.moveUpWardsWhileFadingIn)
             
             Line(width: 660, color: gray3).padding()
                 .padding(.bottom, 8)
