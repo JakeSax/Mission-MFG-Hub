@@ -18,3 +18,12 @@ You can see here on the left side we have a part title, with a step title and st
 <br>
 <br>
 I've been working with SwiftUI on iOS previously so I'm trying to branch out and build this for macOS and see how SwiftUI could work on a big screen! There's a lot to learn with developing for a new platform but I'm loving SwiftUI on Mac so far!
+
+<br> 
+<br>
+
+### Type Styles
+![Mission MFG - Type Styles@2x](https://user-images.githubusercontent.com/47101562/117385192-728cee00-ae99-11eb-9aec-1d3febffe1ba.png)
+<br>
+<br>
+For the header typeface I chose Telegraf, a more rigid and angular grotesk that exudes strength and stability, a perfect choice for a manufacturing company. I went with Object Sans for the body and label text, an extremely legible, versatile, and contemporary typeface great at smaller sizes for body copy. 
