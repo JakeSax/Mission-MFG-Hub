@@ -18,21 +18,31 @@ struct PhotoView: View {
     var body: some View {
         VStack {
             ZStack {
+                // Primary Image
                 primaryImage?.image
                     .resizable()
-                    .cornerRadius(24)
-                    .shadow(color: shadowGrayLight, radius: 12, x: 0, y: 8)
-                    .scaledToFill()
+                    .cornerRadius(20)
+                    .shadow(color: shadowGrayLight, radius: 10, x: 0, y: 8)
+                    .scaledToFit()
                     .onHover(perform: { hovering in
                         withAnimation { isHovering = hovering }
                     })
+                    .overlay( ZStack {
+                        
+                    
+                // Hover Controls
                 if isHovering {
                     VStack {
                         HStack {
                             Text(primaryImage?.description ?? "No Description Added")
                                 .BodyStyle()
                                 .foregroundColor(white)
-                                .background(black.opacity(0.9).blur(radius: 20).padding(EdgeInsets(top: -4, leading: -20, bottom: -4, trailing: -20)).offset(x: 0, y: -4))
+                                .background(
+                                    black
+                                        .opacity(0.9)
+                                        .blur(radius: 20)
+                                        .padding(EdgeInsets(top: -4, leading: -20, bottom: -4, trailing: -20))
+                                        .offset(x: 0, y: -4))
                             Spacer()
                             TextToggle(textLeft: "Print", textRight: "Step", leftPressed: $showPrint)
                                 .frame(width: 240, height: 40, alignment: .center)
@@ -47,10 +57,11 @@ struct PhotoView: View {
                         }
                         
                     }.padding(EdgeInsets(top: 36, leading: 56, bottom: 36, trailing: 40))
+                    
                 }
+                    })
             }
         }
-        .padding(EdgeInsets(top: 48, leading: -12, bottom: 0, trailing: -12))
         
         .onChange(of: showPrint, perform: { value in withAnimation {
             if showPrint == true {

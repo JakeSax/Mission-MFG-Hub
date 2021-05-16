@@ -73,30 +73,6 @@ struct SmallBodyText: ViewModifier {
     }
 }
 
-//
-//struct FlavorText: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.system(size: 14, weight: .light, design: .default))
-//            .lineSpacing(3)
-//    }
-//}
-
-
-//
-//struct Button1: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(Font.custom("SF Compact Text Light", size: 18))
-//    }
-//}
-
-//struct Button2: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.system(size: 24, weight: .light, design: .default))
-//    }
-//}
 
 struct LabelText: ViewModifier {
     func body(content: Content) -> some View {
@@ -113,21 +89,10 @@ struct Label2Text: ViewModifier {
     }
 }
 
-//struct SmallLabel: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(Font.custom("SF Compact Text", size: 14))
-//    }
-//}
-//
-
 extension View {
     func H1Style() -> some View {
         self.modifier(H1())
     }
-//    func F1Style() -> some View {
-//        self.fore
-//    }
     func H2Style() -> some View {
         self.modifier(H2())
     }
@@ -152,21 +117,11 @@ extension View {
     func SmallBodyStyle() -> some View {
         self.modifier(SmallBodyText())
     }
-    
-    //    func Button1Style() -> some View {
-    //        self.modifier(Button1())
-    //    }
-    //    func Button2Style() -> some View {
-    //        self.modifier(Button2())
-    //    }
     func LabelStyle() -> some View {
         self.modifier(LabelText())
     }
     func Label2Style() -> some View {
         self.modifier(Label2Text())
     }
-    //    func SmallLabelStyle() -> some View {
-    //        self.modifier(SmallLabel())
-    //    }
 }
 

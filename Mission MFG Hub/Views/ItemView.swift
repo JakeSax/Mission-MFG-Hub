@@ -10,6 +10,8 @@ import SwiftUI
 struct ItemView: View {
     @StateObject var item: Item
     @State var currentStep: Int = 0
+    @State var order: Order
+    var ideal: CGFloat = 600
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -27,14 +29,16 @@ struct ItemView: View {
                     StepTextListView(item: item, currentStep: $currentStep, stepText: item.steps[currentStep].text)
                     
                 }.padding()
-                .frame(width: 800, alignment: .leading)
-                
-                // MARK: - Photos
-                PhotoView(item: item, currentStep: $currentStep)
-                    //            .frame(width: 900, height: 600, alignment: .center)
-                    .frame(width: 960, height: 640)
-//                    .frame(width: 1080, height: 720)
-                    //            .frame(width: 1200, height: 800, alignment: .center)
+//                .frame(width: 800, alignment: .leading)
+                .frame(minWidth: 400, idealWidth: 600, maxWidth: 600, alignment: .leading)
+                Spacer()
+                // MARK: - Photos & Order Info
+                VStack {
+                    PhotoView(item: item, currentStep: $currentStep)
+//                        .frame(minWidth: 400, idealWidth: ideal, maxWidth: ideal)
+                    OrderInfoView(item: item, customer: order.customerName, dueDate: order.dueDateString)
+                }.padding([.leading, .trailing], 32)
+                .frame(minWidth: 400, idealWidth: 1080, maxWidth: 1080)
             }
         }
     }
@@ -43,7 +47,7 @@ struct ItemView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(item: testItem)
+        ItemView(item: testItem, order: testOrder)
     }
 }
 

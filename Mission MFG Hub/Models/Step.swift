@@ -104,7 +104,7 @@ enum TimeFormat: String {
     case hours = "HR"
 }
 
-class StepText: ObservableObject, Identifiable, Hashable{
+class StepText: ObservableObject, Identifiable, Hashable {
     static func == (lhs: StepText, rhs: StepText) -> Bool {
         lhs.header == rhs.header && lhs.body == rhs.body && lhs.id == rhs.id
     }

@@ -19,6 +19,7 @@
 		8A89E84B25F81378008B4BE8 /* ItemTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89E84A25F81378008B4BE8 /* ItemTabView.swift */; };
 		8A89E85325F81B46008B4BE8 /* ItemTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89E85225F81B46008B4BE8 /* ItemTabBarView.swift */; };
 		8A89E85E25F833F7008B4BE8 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89E85D25F833F7008B4BE8 /* UserData.swift */; };
+		8A93A3D02651A3E70067B975 /* OrderInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A93A3CF2651A3E70067B975 /* OrderInfoView.swift */; };
 		8AAEFEB225D23D5E001F42B5 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEAD25D23D3A001F42B5 /* Fonts.swift */; };
 		8AAEFEB625D23D61001F42B5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEAE25D23D3A001F42B5 /* Colors.swift */; };
 		8AAEFEBD25D23DD9001F42B5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAEFEBA25D23DD4001F42B5 /* Utilities.swift */; };
@@ -71,6 +72,7 @@
 		8A89E84A25F81378008B4BE8 /* ItemTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabView.swift; sourceTree = "<group>"; };
 		8A89E85225F81B46008B4BE8 /* ItemTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTabBarView.swift; sourceTree = "<group>"; };
 		8A89E85D25F833F7008B4BE8 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		8A93A3CF2651A3E70067B975 /* OrderInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoView.swift; sourceTree = "<group>"; };
 		8AAEFEAD25D23D3A001F42B5 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		8AAEFEAE25D23D3A001F42B5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8AAEFEBA25D23DD4001F42B5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 				8ADCFACD25F2EFF20075C1EA /* HeaderTextField.swift */,
 				8ADCFAD825F302FC0075C1EA /* BodyTextField.swift */,
 				8A546B5925D63FF400B0980A /* PhotoView.swift */,
-				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
+				8A93A3CF2651A3E70067B975 /* OrderInfoView.swift */,
 			);
 			path = "ItemView Subviews";
 			sourceTree = "<group>";
@@ -182,6 +184,7 @@
 				8A89E84A25F81378008B4BE8 /* ItemTabView.swift */,
 				8AE2CE3025D230F30005DA66 /* ItemView.swift */,
 				8A546B2925D6131800B0980A /* ItemView Subviews */,
+				8A7AB92F25D742280027ECD7 /* ItemListView.swift */,
 				8A7AB92A25D7416E0027ECD7 /* MemberListView.swift */,
 				8AAEFECC25D23DEF001F42B5 /* Supporting Views */,
 			);
@@ -322,7 +325,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					8AE2CE2A25D230F30005DA66 = {
 						CreatedOnToolsVersion = 12.4;
@@ -410,6 +413,7 @@
 				8A7AB92625D741600027ECD7 /* OrderListView.swift in Sources */,
 				8ADCFAC125F06E1B0075C1EA /* ItemPreview.swift in Sources */,
 				8AE2CE2F25D230F30005DA66 /* Mission_MFG_HubApp.swift in Sources */,
+				8A93A3D02651A3E70067B975 /* OrderInfoView.swift in Sources */,
 				8A89E85E25F833F7008B4BE8 /* UserData.swift in Sources */,
 				8A7AB94125D746C20027ECD7 /* OrderView.swift in Sources */,
 				8AAEFECE25D23E03001F42B5 /* BaseViews.swift in Sources */,
@@ -572,6 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mission MFG Hub/Mission_MFG_Hub.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Mission MFG Hub/Preview Content\"";
@@ -596,6 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Mission MFG Hub/Mission_MFG_Hub.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Mission MFG Hub/Preview Content\"";

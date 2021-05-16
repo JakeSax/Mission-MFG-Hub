@@ -305,3 +305,21 @@ struct SimpleAlertView: View {
             )
     }
 }
+
+
+// Simple set of text views set side by side allowing two different colors 
+struct TextPair: View {
+    var text1: String
+    var text2: String
+    var color1: Color
+    var color2: Color
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 0, content: {
+            Text(text1)
+                .foregroundColor(color1)
+            Text(text2)
+                .foregroundColor(color2)
+        })
+    }
+}

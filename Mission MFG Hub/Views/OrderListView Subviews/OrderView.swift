@@ -64,11 +64,9 @@ struct OrderView: View {
 
 extension OrderView {
     func presentItemView(item: Item, order: Order) {
-//        if userData.openTabs.co
         userData.openTabs.append((item: item, order: order))
         isShowingParentView = false
         isShowingItemView = true
-//        }
     }
 }
 
